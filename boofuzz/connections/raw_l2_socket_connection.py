@@ -26,9 +26,10 @@ class RawL2SocketConnection(base_socket_connection.BaseSocketConnection):
             Default True (for standard Ethernet).
     """
 
-    def __init__(self, interface, send_timeout=5.0, recv_timeout=5.0, ethernet_proto=0, mtu=1518, has_framecheck=True):
+    def __init__(self, interface, host, send_timeout=5.0, recv_timeout=5.0, ethernet_proto=0, mtu=1518, has_framecheck=True):
         super(RawL2SocketConnection, self).__init__(send_timeout, recv_timeout)
 
+        self.host = host
         self.interface = interface
         self.ethernet_proto = ethernet_proto
         self.mtu = mtu

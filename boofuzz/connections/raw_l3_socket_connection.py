@@ -27,6 +27,7 @@ class RawL3SocketConnection(base_socket_connection.BaseSocketConnection):
 
     def __init__(
         self,
+        host,
         interface,
         send_timeout=5.0,
         recv_timeout=5.0,
@@ -36,6 +37,7 @@ class RawL3SocketConnection(base_socket_connection.BaseSocketConnection):
     ):
         super(RawL3SocketConnection, self).__init__(send_timeout, recv_timeout)
 
+        self.host = host
         self.interface = interface
         self.ethernet_proto = ethernet_proto
         self.l2_dst = l2_dst
