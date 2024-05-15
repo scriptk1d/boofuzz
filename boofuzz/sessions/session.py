@@ -1204,6 +1204,7 @@ class Session(pgraph.Graph):
             raise exception.SullyRuntimeError("No targets specified in session")
 
         if not self.edges_from(self.root.id):
+            self.fuzz_status = FUZZ_STATUS_CODES.FUZZ_NO_REQUESTS
             raise exception.SullyRuntimeError("No requests specified in session")
 
         if path is not None:
